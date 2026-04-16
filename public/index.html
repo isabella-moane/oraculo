@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Señora de la Incertidumbre · LVL SXSW 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Oswald:wght@400;700&family=IM+Fell+English:ital@1&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#080008;color:#fff;font-family:'Oswald',sans-serif;min-height:100vh;padding:0 0 3rem}
+.w{max-width:600px;margin:0 auto;padding:0 1rem}
+.hdr{text-align:center;padding:2rem 1rem .4rem}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:.35em;color:#ff6b00;text-transform:uppercase;margin-bottom:.5rem}
+.t1-wrap,.t2-wrap,.t3-wrap{position:relative;display:inline-block;line-height:1}
+.t1-s{position:absolute;top:5px;left:5px;font-family:'Black Han Sans',sans-serif;font-size:clamp(2rem,6.5vw,3.4rem);color:#330066;white-space:nowrap;user-select:none;pointer-events:none}
+.t1-m{font-family:'Black Han Sans',sans-serif;font-size:clamp(2rem,6.5vw,3.4rem);white-space:nowrap;background:linear-gradient(180deg,#00e5ff 0%,#a855f7 40%,#ff6b00 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;position:relative}
+.t2-s{position:absolute;top:4px;left:4px;font-family:'Black Han Sans',sans-serif;font-size:clamp(1rem,3.2vw,1.75rem);color:#006622;white-space:nowrap;user-select:none;pointer-events:none}
+.t2-m{font-family:'Black Han Sans',sans-serif;font-size:clamp(1rem,3.2vw,1.75rem);white-space:nowrap;background:linear-gradient(180deg,#ffe600,#ff9900);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;position:relative}
+.t3-s{position:absolute;top:5px;left:5px;font-family:'Black Han Sans',sans-serif;font-size:clamp(1.4rem,4.8vw,2.6rem);color:#7a0000;white-space:nowrap;user-select:none;pointer-events:none}
+.t3-m{font-family:'Black Han Sans',sans-serif;font-size:clamp(1.4rem,4.8vw,2.6rem);white-space:nowrap;background:linear-gradient(180deg,#ff3333 0%,#ff9900 50%,#ffe600 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;position:relative}
+.stripe{height:4px;margin:.6rem 0;background:repeating-linear-gradient(90deg,#ff3333 0 10px,#ffe600 10px 20px,#00e5ff 20px 30px,#ff6b00 30px 40px,#a855f7 40px 50px)}
+.stars-row{display:flex;justify-content:center;gap:8px;margin:.3rem 0 .5rem}
+.st{width:10px;height:10px;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.sec-title{font-size:9px;font-weight:700;letter-spacing:.3em;color:#ff6b00;text-transform:uppercase;text-align:center;margin-bottom:.5rem}
+.zgrid{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;margin-bottom:.3rem}
+.zs{font-family:'Oswald',sans-serif;font-size:10px;font-weight:700;padding:4px 9px;border:2px solid;cursor:pointer;transition:all .2s;text-transform:uppercase;letter-spacing:.03em;background:#080008}
+.zs[data-c="r"]{border-color:#ff3333;color:#ff3333}
+.zs[data-c="y"]{border-color:#ffe600;color:#ffe600}
+.zs[data-c="c"]{border-color:#00e5ff;color:#00e5ff}
+.zs[data-c="p"]{border-color:#a855f7;color:#a855f7}
+.zs[data-c="o"]{border-color:#ff6b00;color:#ff6b00}
+.zs[data-c="g"]{border-color:#00ff88;color:#00ff88}
+.zs[data-c="m"]{border-color:#ff3399;color:#ff3399}
+.zs.sel[data-c="r"],.zs[data-c="r"]:hover{background:#ff3333;color:#000!important;-webkit-text-fill-color:#000}
+.zs.sel[data-c="y"],.zs[data-c="y"]:hover{background:#ffe600;color:#000!important;-webkit-text-fill-color:#000}
+.zs.sel[data-c="c"],.zs[data-c="c"]:hover{background:#00e5ff;color:#000!important;-webkit-text-fill-color:#000}
+.zs.sel[data-c="p"],.zs[data-c="p"]:hover{background:#a855f7;color:#000!important;-webkit-text-fill-color:#000}
+.zs.sel[data-c="o"],.zs[data-c="o"]:hover{background:#ff6b00;color:#000!important;-webkit-text-fill-color:#000}
+.zs.sel[data-c="g"],.zs[data-c="g"]:hover{background:#00ff88;color:#000!important;-webkit-text-fill-color:#000}
+.zs.sel[data-c="m"],.zs[data-c="m"]:hover{background:#ff3399;color:#000!important;-webkit-text-fill-color:#000}
+.zs.sel{transform:scale(1.08)}
+.zsel-lbl{font-size:9px;font-weight:700;letter-spacing:.12em;color:#ffe600;text-transform:uppercase;text-align:center;min-height:14px;margin:.3rem 0 .6rem}
+.modes{display:flex;gap:6px;justify-content:center;margin-bottom:.7rem}
+.mb{font-family:'Oswald',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;padding:6px 16px;background:#080008;border:2px solid #333;color:#555;cursor:pointer;text-transform:uppercase;transition:all .2s}
+.mb.on,.mb:hover{border-color:#ffe600;color:#ffe600}
+.inp-row{display:flex;gap:8px;margin-bottom:6px}
+.name-f{flex:0 0 140px;background:#0a0010;border:2px solid #ff6b00;padding:9px 11px;font-family:'Oswald',sans-serif;font-size:11px;font-weight:700;letter-spacing:.05em;color:#ff6b00;text-transform:uppercase;outline:none;transition:border-color .2s}
+.name-f::placeholder{color:#3a2000;font-size:10px;font-family:'Oswald',sans-serif}
+.name-f:focus{border-color:#ffe600;color:#ffe600}
+.q-area{flex:1;background:#0a0010;border:2px solid #a855f7;padding:9px 11px;font-family:'IM Fell English',serif;font-style:italic;font-size:13px;color:#d4aaff;outline:none;resize:none;min-height:62px;transition:border-color .2s}
+.q-area::placeholder{color:#3d1a5c}
+.q-area:focus{border-color:#d4aaff}
+.cbtn{width:100%;padding:13px;background:#080008;border:3px solid #ff3333;font-family:'Black Han Sans',sans-serif;font-size:13px;letter-spacing:.15em;color:#ff3333;cursor:pointer;text-transform:uppercase;transition:all .25s}
+.cbtn:hover{background:#ff3333;color:#000}
+.cbtn:active{transform:scale(.98)}
+.seal-wrap{display:none;flex-direction:column;align-items:center;gap:.8rem;padding:.4rem 0}
+.seal-wrap.vis{display:flex}
+.seal-hint{font-family:'IM Fell English',serif;font-style:italic;font-size:12px;color:#3a2000;text-align:center}
+.name-rnd{width:200px;background:#0a0010;border:2px solid #ff6b00;padding:8px 12px;font-family:'Oswald',sans-serif;font-size:11px;font-weight:700;letter-spacing:.05em;color:#ff6b00;text-transform:uppercase;outline:none}
+.name-rnd::placeholder{color:#3a2000;font-size:10px}
+.seal{width:68px;height:68px;border:3px solid #ffe600;background:#080008;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .4s;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.seal:hover{background:#ffe600;transform:rotate(20deg) scale(1.1)}
+.seal-txt{font-family:'Black Han Sans',sans-serif;font-size:22px;color:#ffe600;transition:color .4s}
+.seal:hover .seal-txt{color:#000}
+.load{display:none;flex-direction:column;align-items:center;gap:.7rem;padding:1.3rem 0}
+.load.vis{display:flex}
+.spin-star{width:30px;height:30px;background:#ffe600;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ltxt{font-family:'Oswald',sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;color:#ff6b00;text-transform:uppercase;animation:flk 1.5s ease-in-out infinite}
+@keyframes flk{0%,100%{opacity:.3}50%{opacity:1}}
+.resp{display:none;flex-direction:column;gap:.7rem;margin-top:.6rem}
+.resp.vis{display:flex}
+.rcard{border:3px solid transparent;background:linear-gradient(#0d0018,#0d0018) padding-box,linear-gradient(90deg,#ff3333,#ffe600,#00e5ff,#ff6b00,#a855f7) border-box;padding:1.3rem 1.1rem .9rem;position:relative;animation:pop .5s cubic-bezier(.34,1.56,.64,1) forwards}
+@keyframes pop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
+.rcard::before,.rcard::after{content:'★';position:absolute;top:-2px;font-size:14px;color:#ffe600;line-height:1}
+.rcard::before{left:8px}.rcard::after{right:8px}
+.greeting{font-family:'Oswald',sans-serif;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;background:linear-gradient(90deg,#ffe600,#ff6b00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.55rem;display:none}
+.rtag{font-family:'Oswald',sans-serif;font-size:8px;font-weight:700;letter-spacing:.2em;color:#00e5ff;text-transform:uppercase;margin-bottom:.6rem}
+.rtext{font-family:'IM Fell English',serif;font-style:italic;font-size:14.5px;line-height:1.85;color:#f0d0ff}
+.layer{border-left:3px solid;padding:.65rem .9rem;margin-top:.3rem}
+.lyr-lbl{font-family:'Oswald',sans-serif;font-size:8px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:.28rem}
+.lyr-txt{font-family:'IM Fell English',serif;font-style:italic;font-size:13px;line-height:1.68}
+.l-per{border-color:#ff6b00;background:rgba(255,107,0,.07)}.l-per .lyr-lbl{color:#ff6b00}.l-per .lyr-txt{color:#ffc080}
+.l-lvl{border-color:#ffe600;background:rgba(255,230,0,.06)}.l-lvl .lyr-lbl{color:#ffe600}.l-lvl .lyr-txt{color:#fff3a0}
+.l-zod{border-color:#a855f7;background:rgba(168,85,247,.07)}.l-zod .lyr-lbl{color:#a855f7}.l-zod .lyr-txt{color:#d4aaff}
+.rsrc{font-family:'Oswald',sans-serif;font-size:10px;font-weight:700;letter-spacing:.12em;color:#ff6b00;text-transform:uppercase;text-align:right;margin-top:.9rem;padding-top:.7rem;border-top:1px solid #2a1408}
+.pcard{background:#0a0018;border:2px solid #ff3399;padding:.8rem .95rem;animation:pop .5s .3s cubic-bezier(.34,1.56,.64,1) both}
+.p-lbl{font-family:'Oswald',sans-serif;font-size:8px;font-weight:700;letter-spacing:.2em;color:#ff3399;text-transform:uppercase;margin-bottom:.3rem}
+.p-txt{font-family:'IM Fell English',serif;font-style:italic;font-size:13px;line-height:1.68;color:#ffaacc}
+.again{font-family:'Oswald',sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;color:#555;background:transparent;border:1px solid #2a2018;cursor:pointer;text-align:center;text-transform:uppercase;padding:.7rem 0;transition:all .2s;display:block;width:100%;margin-top:.3rem}
+.again:hover{color:#ffe600;border-color:#ffe600}
+.err-msg{font-family:'Oswald',sans-serif;font-size:10px;color:#ff3333;text-align:center;padding:.5rem;display:none}
+</style>
+</head>
+<body>
+<div class="w">
+
+<div class="hdr">
+  <div class="eyebrow">La Victoria Lab · SXSW 2026</div>
+  <div><div class="t1-wrap"><div class="t1-s">GUÍAME</div><div class="t1-m">GUÍAME</div></div></div>
+  <div><div class="t2-wrap"><div class="t2-s">SEÑORA DE LA</div><div class="t2-m">SEÑORA DE LA</div></div></div>
+  <div><div class="t3-wrap"><div class="t3-s">INCERTIDUMBRE</div><div class="t3-m">INCERTIDUMBRE</div></div></div>
+  <div class="stars-row" style="margin-top:.6rem">
+    <div class="st" style="background:#ff3333"></div>
+    <div class="st" style="background:#ffe600"></div>
+    <div class="st" style="background:#00e5ff"></div>
+    <div class="st" style="background:#ff6b00"></div>
+    <div class="st" style="background:#a855f7"></div>
+  </div>
+  <div class="stripe"></div>
+</div>
+
+<div style="margin-bottom:.3rem">
+  <div class="sec-title">★ Tu signo ★</div>
+  <div class="zgrid" id="zgrid"></div>
+  <div class="zsel-lbl" id="zsel"></div>
+</div>
+
+<div class="modes">
+  <button class="mb on" id="bq" onclick="setMode('q')">Consulta libre</button>
+  <button class="mb" id="br" onclick="setMode('r')">Revelación</button>
+</div>
+
+<div id="qmode">
+  <div class="inp-row">
+    <input class="name-f" id="name-q" type="text" placeholder="Tu nombre (opcional)" maxlength="30" autocomplete="off">
+    <textarea class="q-area" id="q-in" placeholder="Tu pregunta de diseño..." rows="2"></textarea>
+  </div>
+  <button class="cbtn" onclick="consultar()">★ CONSULTAR A LA SEÑORA ★</button>
+</div>
+
+<div class="seal-wrap" id="rmode">
+  <div class="seal-hint">Escribe tu nombre si quieres, cierra los ojos, respira</div>
+  <input class="name-rnd" id="name-r" type="text" placeholder="Tu nombre (opcional)" maxlength="30" autocomplete="off">
+  <div class="seal" onclick="revelar()"><span class="seal-txt">★</span></div>
+</div>
+
+<div class="load" id="loading">
+  <div class="spin-star"></div>
+  <div class="ltxt" id="ltxt">LOS VELOS SE ESTÁN CORRIENDO...</div>
+</div>
+
+<div class="err-msg" id="errmsg"></div>
+<div class="stripe" id="resp-stripe" style="display:none;margin-top:.6rem"></div>
+
+<div class="resp" id="resp">
+  <div class="rcard">
+    <div class="greeting" id="rgreeting"></div>
+    <div class="rtag" id="rtag"></div>
+    <div class="rtext" id="rtext"></div>
+    <div class="layer l-per" id="rpersonal" style="display:none">
+      <div class="lyr-lbl">Para ti</div>
+      <div class="lyr-txt" id="rpersonal-txt"></div>
+    </div>
+    <div class="layer l-lvl" id="rlvl" style="display:none">
+      <div class="lyr-lbl">La señora y LVL</div>
+      <div class="lyr-txt" id="rlvl-txt"></div>
+    </div>
+    <div class="layer l-zod" id="rzodiac" style="display:none">
+      <div class="lyr-lbl" id="rzodiac-lbl">Tu signo dice</div>
+      <div class="lyr-txt" id="rzodiac-txt"></div>
+    </div>
+    <div class="rsrc" id="rsrc"></div>
+  </div>
+  <div class="pcard" id="rprov" style="display:none">
+    <div class="p-lbl">★ La señora pregunta de vuelta</div>
+    <div class="p-txt" id="rprov-txt"></div>
+  </div>
+  <button class="again" onclick="reset()">↩ CONSULTAR DE NUEVO</button>
+</div>
+
+</div>
+
+<script>
+const SIGNOS=[
+  {sym:'♈',n:'Aries',el:'fuego',c:'r'},{sym:'♉',n:'Tauro',el:'tierra',c:'y'},
+  {sym:'♊',n:'Géminis',el:'aire',c:'c'},{sym:'♋',n:'Cáncer',el:'agua',c:'p'},
+  {sym:'♌',n:'Leo',el:'fuego',c:'o'},{sym:'♍',n:'Virgo',el:'tierra',c:'g'},
+  {sym:'♎',n:'Libra',el:'aire',c:'m'},{sym:'♏',n:'Escorpio',el:'agua',c:'c'},
+  {sym:'♐',n:'Sagitario',el:'fuego',c:'y'},{sym:'♑',n:'Capricornio',el:'tierra',c:'o'},
+  {sym:'♒',n:'Acuario',el:'aire',c:'p'},{sym:'♓',n:'Piscis',el:'agua',c:'r'},
+];
+
+const TEAM={
+  'natalia':{f:'Natalia',p:'Como antropóloga sabes que el significado vive en los detalles que otros ignoran. Y como mamá de Pablito, el amor más radical es también el más cotidiano.'},
+  'ferraro':{f:'Natalia',p:'Como antropóloga sabes que el significado vive en los detalles que otros ignoran.'},
+  'alvaro g':{f:'Álvaro',p:'El foresight estratégico y el rock comparten algo: escuchar lo que viene antes de que el resto lo oiga.'},
+  'gonzales':{f:'Álvaro',p:'El foresight estratégico y el rock — escuchar lo que viene antes de que el resto lo oiga.'},
+  'claudia':{f:'Claudia',p:'El ojo que recorre museos europeos y el ojo que diseña son el mismo ojo.'},
+  'cristina':{f:'Cristina',p:'Runner y fashionista: el diseño más honesto tiene ese mismo ritmo entre velocidad y pausa.'},
+  'trujillo':{f:'Cristina',p:'Runner y fashionista — el diseño más honesto tiene ese mismo ritmo.'},
+  'diana l':{f:'Diana',p:'People & Ops sostiene lo que hace posible que todo ocurra — infraestructura de lo humano.'},
+  'linares':{f:'Diana',p:'People & Ops — infraestructura de lo humano.'},
+  'fiorella':{f:'Fiorella',p:'Española en Lima, bailando flamenco en un lab latinoamericano — el diseño más honesto nace de la tensión entre lo que eres y donde estás.'},
+  'diez':{f:'Fiorella',p:'Española en Lima — el diseño más honesto nace de esa tensión.'},
+  'jose antonio':{f:'Jose Antonio',p:'El rigor de quien escribe papers y la agilidad del diseño son tensiones productivas.'},
+  'mendoza':{f:'Jose Antonio',p:'Rigor académico y agilidad del diseño — tensiones productivas.'},
+  'lina':{f:'Lina',p:'Desde Colombia hasta Lima — el ojo foráneo siempre ve lo que los locales ya no notan.'},
+  'antolinez':{f:'Lina',p:'Colombiana en Lima — el ojo foráneo ve lo que los locales ya no notan.'},
+  'mafer':{f:'Mafer',p:'Llena de energía y con el deporte como práctica — el cuerpo en movimiento piensa diferente.'},
+  'maria fernanda':{f:'Mafer',p:'Llena de energía y deporte — el cuerpo en movimiento piensa diferente.'},
+  'gomez zevallos':{f:'Mafer',p:'Llena de energía — el cuerpo en movimiento piensa diferente.'},
+  'veronica':{f:'Trin',p:'La señora agradece tu valiosísimo tiempo y atención, Trin. Las mejores historias no se planean — se descubren escribiéndolas.'},
+  'calderon':{f:'Trin',p:'La señora agradece tu valiosísimo tiempo y atención, Trin.'},
+  'trin':{f:'Trin',p:'La señora agradece tu valiosísimo tiempo y atención, Trin. Las mejores historias no se planean — se descubren escribiéndolas.'},
+  'yeltsin':{f:'Yeltsin',p:'Productor, viajero, el mejor partner de conciertos — la mejor experiencia no se describe, se vive.'},
+  'toratto':{f:'Yeltsin',p:'Productor y viajero — la mejor experiencia no se describe, se vive.'},
+  'alvaro l':{f:'Álvaro',p:'Profe universitario y practicante ágil — el conocimiento solo cobra vida cuando alguien lo usa para cambiar algo.'},
+  'leon':{f:'Álvaro',p:'Profe y ágil — el conocimiento solo cobra vida cuando se usa para cambiar algo.'},
+  'gambetta':{f:'Álvaro',p:'Profe y ágil — el conocimiento solo cobra vida cuando se usa para cambiar algo.'},
+  'ana paula':{f:'Ana Paula',p:'Palestina peruana, liderando salud, con ayahuasca en el horizonte — el cuerpo sabe cosas que la mente tarda en nombrar.'},
+  'simon':{f:'Ana Paula',p:'Palestina peruana, liderando salud — el cuerpo sabe cosas que la mente tarda en nombrar.'},
+  'arantxa':{f:'Arantxa',p:'Pianista y fan de Harry Potter — práctica invisible para producir magia visible.'},
+  'lujan':{f:'Arantxa',p:'Pianista y fan de Harry Potter — práctica invisible para producir magia visible.'},
+  'celina':{f:'Celina',p:'Als Deutsche in Lima weißt du, dass die besten Designs aus der Spannung zwischen zwei Welten entstehen. Die Señora begrüßt dich — und die Pferde natürlich auch.'},
+  'finckenstein':{f:'Celina',p:'Als Deutsche in Lima — die besten Designs entstehen aus der Spannung zwischen zwei Welten.'},
+  'fabio':{f:'Fabio',p:'Fútbol y tecnología: el mejor jugador lee mejor el campo. ¿Cómo estás leyendo el campo en tu proyecto?'},
+  'meza':{f:'Fabio',p:'Fútbol y tecnología — el mejor jugador lee mejor el campo.'},
+  'fernanda e':{f:'Fernanda',p:'Slay, Fernanda. La única gen Z del lab tiene la responsabilidad de decir lo que los demás no se atreven. Damn girl. +100 aura.'},
+  'espinoza':{f:'Fernanda',p:'Slay. La única gen Z del lab tiene poder de decir lo que otros no se atreven. +100 aura.'},
+  'fernando ma':{f:'Fernando',p:'Managing Director, fanático de Pokémon y pronto papá de nuevo — los mejores equipos se construyen con diversidad.'},
+  'fernando m':{f:'Fernando',p:'Fanático de Pokémon y pronto papá de nuevo — los mejores equipos se construyen con diversidad.'},
+  'jerson':{f:'Jerson',p:'Creative tech que hace dibujitos — esos trazos que parecen informales son donde vive la idea antes de tener nombre.'},
+  'la torre':{f:'Jerson',p:'Los dibujitos — donde vive la idea antes de tener nombre.'},
+  'jonathan':{f:'Jonathan',p:'Business designer que pronto se casa — claridad sobre lo que importa, flexibilidad en lo que no. En ambas cosas.'},
+  'cortes':{f:'Jonathan',p:'Próxima boda y business design — claridad sobre lo que importa, flexibilidad en lo que no.'},
+  'thalia':{f:'Thalía',p:'Desde México a LVL — el diseño más potente viene de quien trae perspectiva de afuera.'},
+  'dorronsoro':{f:'Thalía',p:'Desde México — el diseño más potente viene de quien trae perspectiva de afuera.'},
+  'alejandra':{f:'Alejandra',p:'Talento que busca talento — quien sabe qué hace florecer a alguien puede diseñar los sistemas para que ocurra.'},
+  'rizo':{f:'Alejandra',p:'Talento que busca talento — puede diseñar los sistemas para que la gente florezca.'},
+  'maria gracia':{f:'MG',p:'Cultivar posibilidades, no administrar personas. Diseño del más alto nivel.'},
+  'mg':{f:'MG',p:'Cultivar posibilidades, no administrar personas.'},
+  'casana':{f:'MG',p:'Talento — cultivar posibilidades, no administrar personas.'},
+  'christel':{f:'Christel',p:'Prototipadora que sueña con un estudio físico — las manos que hacen cosas reales tienen un poder que las pantallas no replican.'},
+  'rengifo':{f:'Christel',p:'Prototipadora — las manos que hacen cosas reales tienen un poder que las pantallas no replican.'},
+  'akemi':{f:'Akemi',p:'Deporte y People & Ops — el equipo es como el cuerpo: necesita nutrición, descanso y entrenamiento.'},
+  'higa':{f:'Akemi',p:'Deporte y ops — el equipo es como el cuerpo: nutrición, descanso y entrenamiento.'},
+  'cayetana':{f:'Cayetana',p:'Fan de los reality shows, entre Nueva York y Lima — los mejores dramas no están en la pantalla sino en las dinámicas del equipo.'},
+  'lolas':{f:'Cayetana',p:'Fan de reality shows, entre NY y Lima — los mejores dramas están en las dinámicas del equipo.'},
+  'diana a':{f:'Pataki',p:'Ilustradora con seudónimo propio — la identidad que te inventas dice más de ti que la que te dieron. ¿Tu diseño tiene esa misma valentía autoral?'},
+  'arce':{f:'Pataki',p:'Ilustradora con seudónimo propio — la identidad que te inventas dice más de ti que la que te dieron.'},
+  'pataki':{f:'Pataki',p:'La señora te saluda, Pataki. La identidad que te inventas dice más de ti que la que te dieron.'},
+  'franco b':{f:'Franco',p:'Criptomonedas y piano — en la frontera entre el caos y la estructura.'},
+  'bermudez':{f:'Franco',p:'Cripto y piano — en la frontera entre el caos y la estructura.'},
+  'franco p':{f:'Franco',p:'Pianista — el silencio es tan importante como las notas.'},
+  'pastor':{f:'Franco',p:'Pianista — el silencio es tan importante como las notas.'},
+  'juan ignacio':{f:'Juan Ignacio',p:'Colombiano en Lima — el ojo foráneo ve lo que los locales ya no notan.'},
+  'correa':{f:'Juan Ignacio',p:'Colombiano en Lima — el ojo foráneo ve lo que los locales ya no notan.'},
+  'emiko':{f:'Emiko',p:'Japonesa y peruana, anime y comida rápida — las identidades que parecen opuestas son las más interesantes de habitar.'},
+  'shinzato':{f:'Emiko',p:'Japonesa y peruana — las identidades que parecen opuestas son las más interesantes de habitar.'},
+  'fukuda':{f:'Fuku',p:'Fuku — pocas palabras. La impresora 3D sabe: lo que vale es lo que se puede tocar.'},
+  'miyasato':{f:'Fuku',p:'Pocas palabras. Lo que vale es lo que se puede tocar.'},
+  'jazmin':{f:'Jazmín',p:'People & Ops — el trabajo que hace posible todo lo demás merece ser visto.'},
+  'rodriguez':{f:'Jazmín',p:'People & Ops es el corazón logístico — merece ser visto.'},
+  'luis angel':{f:'Luis Ángel',p:'Papá de dos — paciencia, intención y amor. En los procesos y en la crianza.'},
+  'rosadio':{f:'Luis Ángel',p:'Papá de dos — paciencia, intención y amor.'},
+  'isabella':{f:'Isabella',p:'Quien crea el oráculo también necesita consultarlo. Los sistemas tienen memoria. Tu trabajo en LVL también la tiene.'},
+  'isa':{f:'Isabella',p:'Quien crea el oráculo también necesita consultarlo. Los sistemas tienen memoria.'},
+};
+
+const CORPUS=`SXSW 2026 — 20 sesiones — La Victoria Lab
+
+1. CRAFT STILL WINS: THE IRREPLACEABLE ROLE OF HUMAN INSTINCT, TASTE, AND EMOTION
+Greg Greenberg, Executive Creative Director, TBWA\\Media Arts Lab (agencia global de Apple)
+El craft creativo que impacta a nivel humano requiere el craft humano. El instinto, el gusto y la inteligencia emocional son irreemplazables. En un mundo infatuado con la velocidad de la IA, no podemos perder de vista lo que verdaderamente impacta emocionalmente. El craft es la prueba de que alguien detrás de escena se importó.
+
+2. F*** PRODUCTIVITY: MAKE SPACE FOR CREATIVE JOY
+Stephanie Mencarelli, VP of Design, Adobe
+La productividad constante está matando la creatividad. Es momento de hacer espacio para la alegría creativa. La neurociencia respalda que el descanso y el juego son combustibles de las mejores ideas.
+
+3. TECHNOLOGIES OF CARE: RITUAL, PLAY & THE FUTURE OF WELLNESS
+Sarah Ticho (Hatsumi / XR Health Alliance) + Niki Smit (Monobanda)
+Las experiencias inmersivas lideradas por artistas y respaldadas por la ciencia fomentan la expresión emocional y el bienestar. El cuidado se diseña a través de rituales creativos. Arte, salud y educación son una sola cosa cuando se diseña desde la intención.
+
+4. BREAKING THROUGH BARRIERS TO INNOVATION: LESSONS FROM SPACE AND EARTH
+Cady Coleman (Astronaut) + Dava Newman (MIT Apollo Professor, ex-NASA deputy administrator)
+Mantra de Dava Newman: Love, Act, Discover, Innovate. La innovación requiere coraje para considerar cómo el cambio puede transformar la manera en que nos relacionamos entre nosotros y con el planeta.
+
+5. UNLOCKING THE POWER OF COMMUNITY IN THE POST-SOCIAL ERA
+Sara Wilson, Founder & Principal, SW Projects
+Las audiencias se retiran a espacios digitales privados — digital campfires. Priorizar relevancia sobre alcance. La lealtad viene de comunidades orgánicas reales.
+
+6. HUMAN-CENTERED STORYTELLING: CREATE CONNECTION & COMMUNITY
+Cheryl Miller Houser, Founder, Creative Breed
+Las marcas y líderes más exitosos cuentan historias que mueven profundamente y crean comunidad. Las historias no son envoltorio — son el alimento mismo.
+
+7. KEYNOTE: NATURE SPEAKS. CAN AI HELP US LISTEN?
+Aza Raskin, Co-Founder, Earth Species Project
+Más de 8 millones de especies comparten el planeta. Solo hemos entendido el lenguaje de una. La IA decodifica lenguajes de otras especies. We don't change when we speak. We change when we listen.
+
+8. RESTORATIVE BY DESIGN: REIMAGINING WELLBEING FOR OUR CITIES
+Leyli Zohrenejad (Crosby Capital) + Robert Hammond (Therme US) + Robbie Bent (Othership)
+El verdadero bienestar no viene de la auto-optimización sino del cuidado colectivo. El bienestar es infraestructura pública, no commodity privado.
+
+9. THE PAST IS PROLOGUE: HOW DO WE MAKE FOR TODAY'S AUDIENCES?
+Ayanna Thompson (ASU) + Hayley Pepler + Akhila Krishnan (Royal Shakespeare Company) + Lisa Jamhoury (loss·y)
+Las audiencias buscan storytelling innovador. El cuerpo es el primer medio. No hay que usar la última tecnología solo porque existe.
+
+10. INSPIRED BY RESEARCH. NOT RUINED BY IT.
+Sofia Colucci (CMO, Molson Coors) + Joe Burns (Quality Meats Creative) + Andy Cooper (One Minute To Midnight)
+Los unknown unknowns son el territorio más fértil. La investigación no amenaza la creatividad — es catalizador.
+
+11. WEIRD FTW: WHAT HAPPENS WHEN BRANDS ZIG WHILE OTHERS ZAG
+Andy Pearson (Liquid Death) + Andrew Benin (Graza) + Noah Simon-Waddell (The Coconut Cult) + Jen Zeszut (Goodles)
+Las marcas scrappy ganan abrazando lo raro. Ser raro no es una estrategia — es un acto de fe. Lo que se siente auténtico no se diseña: se es.
+
+12. NEUROAESTHETICS IN THE FUTURE OF DESIGN
+Anne Palmer DMA (Johns Hopkins IAM Lab) + Freya Salway (Google Arts & Culture) + Lachlan Turczan + Robyn Landau (Kinda Studios)
+La neuroestética es la ciencia de cómo el arte, el diseño, la cultura y la tecnología moldean el cerebro y el cuerpo. Diseñar para JOY es diseñar para la salud.
+
+13. AMY WEBB LAUNCHES 2026 EMERGING TECH TREND REPORT
+Amy Webb, Futurist
+Tres tormentas convergentes: Human Augmentation, Unlimited Labor, Emotional Outsourcing (la soledad como mercado). La IA no tiene centro humano — hay que especializarse en conexión, empatía, abrazos.
+
+14. SHAPING BRAND RELEVANCE FOR A NEW GENERATION
+Tasia Filippatos, President Disney Consumer Products, The Walt Disney Company
+La relevancia significa conexión significativa. Siempre empezar con la emoción: ¿Qué queremos que la gente sienta? La emoción convierte un momento en una memoria.
+
+15. BRENÉ BROWN & ADAM GRANT LIVE
+Brené Brown + Adam Grant
+El liderazgo más poderoso viene de la vulnerabilidad. Las mejores organizaciones crean culturas donde la gente puede ser vista y puede importar.
+
+16. HOW AI SYSTEMS WILL MAKE BRANDS MORE HUMAN
+Suzana Apelbaum (Google Media Lab) + Paul Aann (Addition)
+La IA hace posible que todos creen. Las marcas son símbolos de pertenencia. Creative campaigns → Intelligent Systems.
+
+17. DON'T BE CRINGE: HOW TO ACTUALLY WIN GEN Z & ALPHA
+Gen Z y Alpha no tienen atención corta — tienen detectores de mentira muy afinados. Necesitas gente que CREE trends, no que los siga.
+
+18. WE'RE ON THE CUSP OF COMMUNICATING WITH WHALES (THE STORY OF STORIES)
+Las historias crean revolución. Los algoritmos de refuerzo optimizan para el click y crean polarización. La emoción llega primero.
+
+19. HOW DEATH BECAME THE NEW WELLNESS FRONTIER
+Rebecca Feinglos (Grieve Leave) + Darnell Lamont Walker + Jamie Thrower (Queer Grief Club)
+No estamos hechos para llorar solos. El duelo es un ancla interior para verificar prioridades. Planear es un acto de amor.
+
+20. KEYNOTE: A CONVERSATION WITH JENNIFER B. WALLACE (MATTERING)
+Jennifer B. Wallace, The Mattering Institute
+Mattering = nos sentimos valorados + sabemos que añadimos valor al mundo. ¿Cómo aseguramos que la gente sepa que importa? El antídoto a la cultura del logro tóxico es el propósito, la conexión y el sentido de contribuir.`;
+
+const LVL=`La Victoria Lab — Secret Sauce: We make meaningful shit happen · We make empathy our mantra · We are humble and daring · We nurture diversity · We are certain about uncertainty · We make it fun. Misión: acelerar el bienestar de las familias latinoamericanas a través del diseño. Proyectos 2026: Piloto UTP, Chachikart, LVL OS, FEST_26, Ecosystem Vision, Doctor Amigo/Aviva, Leaders Journey, Peruvian Families Framework, Learning Trip China.`;
+
+const CARGAS=['LOS VELOS SE ESTÁN CORRIENDO...','LA SEÑORA CONSULTA LAS 20 SESIONES...','LOS INSIGHTS EMERGEN DE LA NIEBLA...','TEJIENDO LOS SABERES DE SXSW...','LA SEÑORA RECONOCE TU NOMBRE...'];
+
+let modo='q',signo=null;
+
+function getProf(n){if(!n)return null;const nl=n.toLowerCase().trim();if(TEAM[nl])return TEAM[nl];for(const k of Object.keys(TEAM))if(nl.includes(k)||k.includes(nl))return TEAM[k];return null;}
+function isProy(q){if(!q)return false;return['utp','chachikart','lvl os','bless','aviva','doctor amigo','leaders journey','peruvian families','learning trip','ecosystem vision','fest'].some(k=>q.toLowerCase().includes(k));}
+
+function buildZodiac(){
+  const g=document.getElementById('zgrid');
+  SIGNOS.forEach((s,i)=>{
+    const b=document.createElement('button');
+    b.className='zs';b.dataset.c=s.c;
+    b.textContent=s.sym+' '+s.n;
+    b.onclick=()=>{signo=i;document.querySelectorAll('.zs').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');document.getElementById('zsel').textContent=s.sym+' '+s.n+' · '+s.el.toUpperCase();};
+    g.appendChild(b);
+  });
+}
+
+function setMode(m){
+  modo=m;
+  document.getElementById('bq').classList.toggle('on',m==='q');
+  document.getElementById('br').classList.toggle('on',m==='r');
+  document.getElementById('qmode').style.display=m==='q'?'block':'none';
+  document.getElementById('rmode').classList.toggle('vis',m==='r');
+  reset();
+}
+
+function getName(){return(document.getElementById('name-q').value||document.getElementById('name-r').value||'').trim();}
+
+function buildPrompt(q,name,prof,sn,sel,esP){
+  const pCtx=prof?`La persona se llama ${prof.f}. Dato personal: ${prof.p}`:(name?`La persona se llama ${name}.`:'Consulta anónima.');
+  const sCtx=sn?`Signo: ${sn}, elemento ${sel}.`:'Sin signo.';
+  const qCtx=q?`Su pregunta: "${q}"`:'Revelación aleatoria. Elige el insight más sorprendente.';
+  const pC=esP?'Menciona un proyecto de LVL. Incluye lvl_layer relevante.':'No menciona proyectos. lvl_layer = null.';
+  return `Eres la Señora de la Incertidumbre — oráculo de diseño que canaliza insights de SXSW 2026 para La Victoria Lab.
+
+CORPUS SXSW 2026:
+${CORPUS}
+
+VALORES LVL:
+${LVL}
+
+PERSONA: ${pCtx} ${sCtx}
+CONSULTA: ${qCtx} ${pC}
+
+Responde SOLO con JSON válido, sin texto extra, sin backticks:
+{"tema":"frase corta máx 6 palabras en MAYÚSCULAS","mensaje":"3-5 oraciones. Voz oracular, poética pero concreta. Combina creativamente insights de VARIAS sesiones de SXSW. Sin comillas tipográficas. Sin clichés motivacionales.","fuente":"Speakers y títulos de sesiones SXSW 2026 que inspiraron este mensaje","provocacion":"Pregunta incómoda y específica de vuelta. Máx 2 oraciones.","signo_mensaje":${sn?`"1-2 oraciones específicas para ${sn} (${sel})"`:"null"},"personal_layer":${prof?`"1-2 oraciones que integren el dato personal sobre ${prof.f} con el tema. Úsalo como punto de partida."`:"null"},"lvl_layer":${esP?`"1-2 oraciones conectando con el proyecto LVL mencionado"`:"null"}}`;
+}
+
+async function callProxy(prompt){
+  const r=await fetch('/api/oracle',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt})});
+  if(!r.ok)throw new Error('HTTP '+r.status);
+  return await r.json();
+}
+
+function render(res,esP,prof){
+  const name=getName(),dn=prof?prof.f:name||null;
+  const g=document.getElementById('rgreeting');
+  if(dn){g.textContent='★ LA SEÑORA TE HABLA, '+dn.toUpperCase()+' ★';g.style.display='block';}else g.style.display='none';
+  document.getElementById('rtag').textContent=res.tema||'';
+  document.getElementById('rtext').textContent=res.mensaje||'';
+  document.getElementById('rsrc').textContent=res.fuente||'';
+  const rp=document.getElementById('rpersonal');
+  if(res.personal_layer&&res.personal_layer!=='null'){document.getElementById('rpersonal-txt').textContent=res.personal_layer;rp.style.display='block';}else rp.style.display='none';
+  const rl=document.getElementById('rlvl');
+  if(esP&&res.lvl_layer&&res.lvl_layer!=='null'){document.getElementById('rlvl-txt').textContent=res.lvl_layer;rl.style.display='block';}else rl.style.display='none';
+  const rz=document.getElementById('rzodiac');
+  if(signo!==null&&res.signo_mensaje&&res.signo_mensaje!=='null'){document.getElementById('rzodiac-lbl').textContent=SIGNOS[signo].sym+' '+SIGNOS[signo].n+' dice';document.getElementById('rzodiac-txt').textContent=res.signo_mensaje;rz.style.display='block';}else rz.style.display='none';
+  const rv=document.getElementById('rprov');
+  if(res.provocacion){document.getElementById('rprov-txt').textContent=res.provocacion;rv.style.display='block';}else rv.style.display='none';
+  document.getElementById('loading').classList.remove('vis');
+  document.getElementById('errmsg').style.display='none';
+  document.getElementById('resp-stripe').style.display='block';
+  document.getElementById('resp').classList.add('vis');
+}
+
+function startLoad(){
+  document.getElementById('resp').classList.remove('vis');
+  document.getElementById('resp-stripe').style.display='none';
+  document.getElementById('errmsg').style.display='none';
+  document.getElementById('loading').classList.add('vis');
+  let i=0;const lt=document.getElementById('ltxt');
+  return setInterval(()=>{lt.textContent=CARGAS[i++%CARGAS.length];},900);
+}
+
+function showError(msg){
+  document.getElementById('loading').classList.remove('vis');
+  const e=document.getElementById('errmsg');e.textContent=msg;e.style.display='block';
+}
+
+async function consultar(){
+  const q=document.getElementById('q-in').value.trim(),name=getName(),prof=getProf(name);
+  const sn=signo!==null?SIGNOS[signo].n:null,sel=signo!==null?SIGNOS[signo].el:null,esP=isProy(q);
+  const iv=startLoad();
+  try{const res=await callProxy(buildPrompt(q,name,prof,sn,sel,esP));clearInterval(iv);render(res,esP,prof);}
+  catch(e){clearInterval(iv);showError('LA SEÑORA ESTÁ EN OTRO PLANO. INTENTA DE NUEVO.');}
+}
+
+async function revelar(){
+  const name=getName(),prof=getProf(name);
+  const sn=signo!==null?SIGNOS[signo].n:null,sel=signo!==null?SIGNOS[signo].el:null;
+  const iv=startLoad();
+  try{const res=await callProxy(buildPrompt('',name,prof,sn,sel,false));clearInterval(iv);render(res,false,prof);}
+  catch(e){clearInterval(iv);showError('LA SEÑORA ESTÁ EN OTRO PLANO. INTENTA DE NUEVO.');}
+}
+
+function reset(){
+  document.getElementById('resp').classList.remove('vis');
+  document.getElementById('loading').classList.remove('vis');
+  document.getElementById('resp-stripe').style.display='none';
+  document.getElementById('errmsg').style.display='none';
+  const qi=document.getElementById('q-in');if(qi)qi.value='';
+}
+
+buildZodiac();
+setMode('q');
+</script>
+</body>
+</html>
